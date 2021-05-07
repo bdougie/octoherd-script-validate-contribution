@@ -1,12 +1,12 @@
 {
-  "name": "",
+  "name": "octoherd-script-validate-pr",
   "version": "0.0.0-development",
   "type": "module",
   "exports": "./script.js",
   "bin": {
     "octoherd-script-valid-pr": "./cli.js"
   },
-  "description": "octoherd-script-good-pr",
+  "description": "Script to validate if the PR still includes boiler copy",
   "scripts": {
     "start": "node cli.js",
     "test": "node script.js"
