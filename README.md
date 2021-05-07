@@ -1,5 +1,3 @@
-# 🚧 WORK IN PROGRESS. See [#1](https://github.com/bdougie/octoherd-script-valid-pr/pull/1) | [Preview](https://github.com/bdougie/octoherd-script-valid-pr/tree/initial-version)
-
 # octoherd-script-valid-pr
 
 > octoherd-script-good-pr
