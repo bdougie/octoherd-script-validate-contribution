@@ -11,9 +11,12 @@ export async function script(octokit, repository) {
   const [repoOwner, repoName] = repository.full_name.split("/");
   octokit.log.info(`${repoOwner} name: ${repoName}`)
 
-  const data = await octokit.request(
-    `GET /repos/${repoOwner}/${repoName}/issues/`
-  )
+  const data = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+    owner: repoOwner,
+    repo: repoName,
+  })
+
+  // filter data fir todo in issue body
 
   octokit.log.info(data)
 }
