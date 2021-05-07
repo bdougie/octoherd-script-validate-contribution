@@ -16,8 +16,9 @@ export async function script(octokit, repository) {
 
   try {
     for (let i = 0; i < issues.data.length; i++) {
-      const {body} = issues.data[i];
+      const {body} = issues.data[0];
 
+      // TODO: Pass this in as a argument
       const todoExists = body.includes("TODO");
 
       if (todoExists) {
@@ -26,10 +27,11 @@ export async function script(octokit, repository) {
           owner: repoOwner,
           repo: repoName,
           issue_number: issues.data[i].number,
-          labels: ["chore"]
+          labels: ["needs info"] // TODO: make this label an argument
         })
       }
     }
   } catch(e) {
     octokit.log.error(e)
   }
+}
