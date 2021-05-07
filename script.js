@@ -7,16 +7,29 @@
  * @param {import('@octoherd/cli').Repository} repository
  */
 export async function script(octokit, repository) {
-  console.log("foo")
   const [repoOwner, repoName] = repository.full_name.split("/");
-  octokit.log.info(`${repoOwner} name: ${repoName}`)
 
-  const data = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+  const issues = await octokit.request('GET /repos/{owner}/{repo}/issues', {
     owner: repoOwner,
     repo: repoName,
   })
 
-  // filter data fir todo in issue body
+  try {
+    for (let i = 0; i < issues.data.length; i++) {
+      const {body} = issues.data[i];
 
-  octokit.log.info(data)
-}
+      const todoExists = body.includes("TODO");
+
+      if (todoExists) {
+
+        await octokit.request('POST /repos/{owner}/{repo}/issues/{issue_number}/labels', {
+          owner: repoOwner,
+          repo: repoName,
+          issue_number: issues.data[i].number,
+          labels: ["chore"]
+        })
+      }
+    }
+  } catch(e) {
+    octokit.log.error(e)
+  }
