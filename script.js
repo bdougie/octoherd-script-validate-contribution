@@ -5,9 +5,11 @@
  *
  * @param {import('@octoherd/cli').Octokit} octokit
  * @param {import('@octoherd/cli').Repository} repository
+ * @param { {label?: string} } options Custom user options passed to the CLI
  */
 export async function script(octokit, repository) {
   const [repoOwner, repoName] = repository.full_name.split("/");
+  const label = options.label || "needs info";
 
   const issues = await octokit.request('GET /repos/{owner}/{repo}/issues', {
     owner: repoOwner,
@@ -27,7 +29,7 @@ export async function script(octokit, repository) {
           owner: repoOwner,
           repo: repoName,
           issue_number: issues.data[i].number,
-          labels: ["needs info"] // TODO: make this label an argument
+          labels: [label]
         })
       }
     }
