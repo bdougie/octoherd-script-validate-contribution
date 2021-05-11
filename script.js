@@ -7,7 +7,7 @@
  * @param {import('@octoherd/cli').Repository} repository
  * @param { {label?: string} } options Custom user options passed to the CLI
  */
-export async function script(octokit, repository) {
+export async function script(octokit, repository, options) {
   const [repoOwner, repoName] = repository.full_name.split("/");
   const label = options.label || "needs info";
 
