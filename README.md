@@ -31,6 +31,7 @@ npx octoherd-script-good-pr \
 | `--label`                    | string           | Label to apply to issues/pull-requests (default: `needs info`)                                                                                                                                                                              |
 | `--text`                     | string           | Forbidden text (default: `TODO`) to mark issues/pull-requests with label                                                                                                                                                                    |
 
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
