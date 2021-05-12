@@ -5,11 +5,12 @@
  *
  * @param {import('@octoherd/cli').Octokit} octokit
  * @param {import('@octoherd/cli').Repository} repository
- * @param { {label?: string} } options Custom user options passed to the CLI
+ * @param { {label?: string, text?: string} } options Custom user options passed to the CLI
  */
 export async function script(octokit, repository, options) {
   const [repoOwner, repoName] = repository.full_name.split("/");
   const label = options.label || "needs info";
+  const forbiddenText = options.text || "TODO";
 
   const issues = await octokit.request('GET /repos/{owner}/{repo}/issues', {
     owner: repoOwner,
@@ -20,8 +21,7 @@ export async function script(octokit, repository, options) {
     for (let i = 0; i < issues.data.length; i++) {
       const {body} = issues.data[0];
 
-      // TODO: Pass this in as a argument
-      const todoExists = body.includes("TODO");
+      const todoExists = body.includes(forbiddenText);
 
       if (todoExists) {
 
