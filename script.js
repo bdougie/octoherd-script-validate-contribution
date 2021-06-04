@@ -12,14 +12,14 @@ export async function script(octokit, repository, options) {
   const label = options.label || "needs info";
   const forbiddenText = options.text || "TODO";
 
-  const issues = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+  const issues = await octokit.paginate('GET /repos/{owner}/{repo}/issues', {
     owner: repoOwner,
     repo: repoName,
   })
 
   try {
-    for (let i = 0; i < issues.data.length; i++) {
-      const {body} = issues.data[0];
+    for (let i = 0; i < issues.length; i++) {
+      const {body} = issues[0];
 
       const todoExists = body.includes(forbiddenText);
 
@@ -28,7 +28,7 @@ export async function script(octokit, repository, options) {
         await octokit.request('POST /repos/{owner}/{repo}/issues/{issue_number}/labels', {
           owner: repoOwner,
           repo: repoName,
-          issue_number: issues.data[i].number,
+          issue_number: issues[i].number,
           labels: [label]
         })
       }
