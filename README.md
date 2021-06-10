@@ -1,22 +1,22 @@
-# octoherd-script-valid-pr
+# octoherd-script-validate-contribution
 
-> octoherd-script-good-pr
+> octoherd-script-validate-contribution
 
-[![@latest](https://img.shields.io/npm/v/.svg)](https://www.npmjs.com/package/octoherd-script-validate-pr)
-[![Build Status](https://github.com/bdougie/octoherd-script-valid-pr/workflows/Test/badge.svg)](https://github.com/bdougie/octoherd-script-valid-pr/actions?query=workflow%3ATest+branch%3Amain)
+[![@latest](https://img.shields.io/npm/v/.svg)](https://www.npmjs.com/package/octoherd-script-validate-contribution)
+[![Build Status](https://github.com/bdougie/octoherd-script-validate-contribution/workflows/Test/badge.svg)](https://github.com/bdougie/octoherd-script-validate-contribution/actions?query=workflow%3ATest+branch%3Amain)
 
 ## Usage
 
 Minimal usage
 
 ```js
-npx octoherd-script-validate-pr;
+npx octoherd-script-validate-contribution;
 ```
 
 Pass all options as CLI flags to avoid user prompts
 
 ```js
-npx octoherd-script-good-pr \
+npx octoherd-script-validate-contribution\
   -T ghp_0123456789abcdefghjklmnopqrstuvwxyzA \
   -R "open-sauced/*"
 ```

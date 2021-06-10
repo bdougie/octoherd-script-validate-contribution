@@ -11,7 +11,7 @@ Thank you 💖
 
 Before you create a new Issue:
 
-1. Please make sure there is no [open issue](https://github.com/bdougie/octoherd-script-valid-pr/issues?utf8=%E2%9C%93&q=is%3Aissue) yet.
+1. Please make sure there is no [open issue](https://github.com/bdougie/octoherd-script-validate-contribution/issues?utf8=%E2%9C%93&q=is%3Aissue) yet.
 2. If it is a bug report, include the steps to reproduce the issue
 3. If it is a feature request, please share the motivation for the new feature, what alternatives you tried, and how you would implement it.
 
@@ -22,8 +22,8 @@ First, fork the repository.
 Setup the repository locally. Replace `<your account name>` with the name of the account you forked to.
 
 ```shell
-git clone https://github.com/<your account name>/octoherd-script-valid-pr.git
-cd octoherd-script-valid-pr
+git clone https://github.com/<your account name>/octoherd-script-validate-contribution.git
+cd octoherd-script-validate-contribution
 npm install
 ```
 
@@ -37,7 +37,7 @@ npm test
 
 - Create a new branch locally.
 - Make your changes in that branch and push them to your fork
-- Submit a pull request from your topic branch to the main branch on the `bdougie/octoherd-script-valid-pr` repository.
+- Submit a pull request from your topic branch to the main branch on the `bdougie/octoherd-script-validate-contribution` repository.
 - Be sure to tag any issues your pull request is taking care of / contributing to. Adding "Closes #123" to a pull request description will automatically close the issue once the pull request is merged in.
 
 ## Maintainers only

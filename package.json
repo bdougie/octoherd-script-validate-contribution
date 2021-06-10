@@ -1,17 +1,17 @@
 {
-  "name": "octoherd-script-validate-pr",
+  "name": "octoherd-script-validate-contribution",
   "version": "0.0.0-development",
   "type": "module",
   "exports": "./script.js",
   "bin": {
-    "octoherd-script-valid-pr": "./cli.js"
+    "octoherd-script-validate-contribution": "./cli.js"
   },
-  "description": "Script to validate if the PR still includes boiler copy",
+  "description": "Script to validate if the contribution still includes boilerplate copy",
   "scripts": {
     "start": "node cli.js",
     "test": "node script.js"
   },
-  "repository": "https://github.com/bdougie/octoherd-script-valid-pr",
+  "repository": "https://github.com/bdougie/octoherd-script-validate-contribution",
   "keywords": [
     "octoherd-script"
   ],
