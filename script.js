@@ -19,7 +19,7 @@ export async function script(octokit, repository, options) {
 
   try {
     for (let i = 0; i < issues.length; i++) {
-      const {body} = issues[0];
+      const {body} = issues[i];
 
       const todoExists = body.includes(forbiddenText);
 
