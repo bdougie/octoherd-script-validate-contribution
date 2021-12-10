@@ -1,6 +1,6 @@
 {
   "name": "octoherd-script-validate-contribution",
-  "version": "0.0.0-development",
+  "version": "1.0.3",
   "type": "module",
   "exports": "./script.js",
   "bin": {
