@@ -5,12 +5,18 @@ on:
       - main
 
 jobs:
+  test:
+    name: "Test matrix"
+    uses: bdougie/octoherd-script-validate-contribution/.github/workflows/test.yml@main
+
   release:
     environment:
       name: production
       url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.semantic-release.outputs.release-tag }}
     name: Semantic release
     runs-on: ubuntu-latest
+    needs:
+      - test
     steps:
       - name: "☁️ checkout repository"
         uses: actions/checkout@v2
