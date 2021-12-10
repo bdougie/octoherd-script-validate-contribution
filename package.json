@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/bdougie/octoherd-script-validate-contribution-test.git"
+    "url": "git+ssh://git@github.com/bdougie/octoherd-script-validate-contribution.git"
   },
   "keywords": [
     "octoherd-script"
