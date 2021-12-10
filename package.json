@@ -9,14 +9,18 @@
   "description": "Script to validate if the contribution still includes boilerplate copy",
   "scripts": {
     "start": "node cli.js",
-    "test": "node script.js"
+    "test": "node script.js",
+    "push": "npx @open-sauced/conventional-commit"
   },
-  "repository": "https://github.com/bdougie/octoherd-script-validate-contribution",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bdougie/octoherd-script-validate-contribution-test.git"
+  },
   "keywords": [
     "octoherd-script"
   ],
   "author": "Brian Douglas (https://bdougie.live)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@octoherd/cli": "^3.3.1"
   },
@@ -24,5 +28,11 @@
     "branches": [
       "main"
     ]
+  },
+  "devDependencies": {
+    "@open-sauced/conventional-commit": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

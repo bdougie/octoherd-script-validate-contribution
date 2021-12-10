@@ -6,21 +6,25 @@ on:
 
 jobs:
   release:
-    name: release
+    environment:
+      name: production
+      url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.semantic-release.outputs.release-tag }}
+    name: Semantic release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: "☁️ checkout repository"
+        uses: actions/checkout@v2
         with:
-          node-version: 12
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm ci
-      - run: npx semantic-release
+          fetch-depth: 0
+
+      - name: "🚀 release"
+        id: semantic-release
+        uses: open-sauced/semantic-release-conventional-config@v3.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: "♻️ cleanup"
+        run: |
+          echo ${{ steps.semantic-release.outputs.release-tag }}
+          echo ${{ steps.semantic-release.outputs.release-version }}
