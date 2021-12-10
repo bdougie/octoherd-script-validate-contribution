@@ -6,33 +6,33 @@ on:
       - edited
       - synchronize
       - reopened
+  workflow_call:
 
 jobs:
   test_matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: ["12", "14"]
+        node_version: [12, 14, 16, 17]
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node_version }}
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm ci
+
+      - uses: bahmutov/npm-install@v1
+
       - run: npm test
 
-  # The "test" step can be required in branch protection and does not
-  # change each time the test matrix changes.
+  # the "test" step can NOT be required in branch protection if we
+  # are running semantic-release however it can be reused with a
+  # workflow_call.
   test:
     runs-on: ubuntu-latest
     needs: test_matrix
     steps:
-      - run: echo ok
+      - run: |
+          echo ok
