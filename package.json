@@ -8,9 +8,9 @@
   },
   "description": "Script to validate if the contribution still includes boilerplate copy",
   "scripts": {
+    "push": "npx @open-sauced/conventional-commit",
     "start": "node cli.js",
-    "test": "node script.js",
-    "push": "npx @open-sauced/conventional-commit"
+    "test": "node script.js"
   },
   "repository": {
     "type": "git",
