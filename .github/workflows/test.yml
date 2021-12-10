@@ -1,10 +1,11 @@
 name: Test
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
 
 jobs:
   test_matrix:
